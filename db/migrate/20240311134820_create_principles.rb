@@ -1,4 +1,4 @@
-class CreatePrinciples < ActiveRecord::Migration[7.1]
+class CreatePrinciples < ActiveRecord::Migration[6.1]
   def change
     create_table :principles do |t|
       t.string :principle_first, null: false
