@@ -37,7 +37,7 @@ class CreatePrinciples < ActiveRecord::Migration[6.1]
       t.string :other_third
 
       # TODO: 他テーブルが作成できたら参照する
-      # t.references :user, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       # t.references :partner, null: false, foreign_key: true
 
       t.timestamps
