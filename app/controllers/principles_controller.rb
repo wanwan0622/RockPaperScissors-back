@@ -1,9 +1,16 @@
 class PrinciplesController < ApplicationController
-  before_action :set_principle, only: %i[ show update destroy ]
+  before_action :set_principle, only: %i[ update destroy ]
 
   # GET /principles/1
   def show
-    render json: @principle
+    principle = Principle.find_by(user_id: params[:user_id])
+
+    if principle
+      render json: principle
+    else
+      # 該当するレコードが見つからない場合は、404 Not Foundを返す
+      render json: { error: "Not Found" }, status: :not_found
+    end
   end
 
   # POST /principles

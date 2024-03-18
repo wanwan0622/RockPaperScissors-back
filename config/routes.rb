@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :principles, except: %i[index]
+  resources :principles, only: %i[show], param: :user_id
+  resources :principles, except: %i[index show]
 end
