@@ -39,6 +39,15 @@ class PrinciplesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def principle_params
-      params.fetch(:principle, {})
+      params.permit(
+        :principle_first, :principle_second, :principle_third, :principle_fourth,
+        :principle_fifth, :principle_sixth, :principle_seventh, :principle_eighth,
+        :principle_ninth, :principle_tenth, :why_first, :what_first, :when_first,
+        :who_first, :how_first, :where_first, :other_first, :why_second, :what_second,
+        :when_second, :who_second, :how_second, :where_second, :other_second, :why_third,
+        :what_third, :when_third, :who_third, :how_third, :where_third, :other_third
+        # TODO: ユーザーまたはパートナーを参照する場合は、以下のように追加します。
+        # :user_id, :partner_id
+      )
     end
 end
