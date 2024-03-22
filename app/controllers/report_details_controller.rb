@@ -5,7 +5,7 @@ class ReportDetailsController < ApplicationController
   def index
     report_details = ReportDetail.where(report_id: params[:report_id])
 
-    if report
+    if report_details
       render json: report_details
     else
       # 該当するレコードが見つからない場合は、404 Not Foundを返す
