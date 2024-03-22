@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   # 議事録パート
   resources :reports, except: %i[show destroy]
   resources :report_details, except: %i[show destroy]
+  resources :to_dos, except: %i[show destroy]
 end
