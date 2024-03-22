@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_03_18_113254) do
+ActiveRecord::Schema.define(version: 2024_03_22_182941) do
 
   create_table "partners", force: :cascade do |t|
     t.string "name", limit: 10, null: false
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2024_03_18_113254) do
     t.index ["user_id"], name: "index_principles_on_user_id", unique: true
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "decision"
+    t.float "todo_progress"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -94,4 +104,5 @@ ActiveRecord::Schema.define(version: 2024_03_18_113254) do
   add_foreign_key "partners", "users"
   add_foreign_key "principles", "partners"
   add_foreign_key "principles", "users"
+  add_foreign_key "reports", "users"
 end
