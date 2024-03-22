@@ -3,4 +3,5 @@ class Report < ApplicationRecord
 
   belongs_to :user
   has_many :report_detail
+  has_many :to_do
 end
