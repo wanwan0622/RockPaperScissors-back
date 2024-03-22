@@ -1,7 +1,7 @@
 class PrinciplesController < ApplicationController
   before_action :set_principle, only: %i[ update destroy ]
 
-  # GET /principles/1
+  # GET /principles/:user_id
   def show
     principle = Principle.find_by(user_id: params[:user_id])
 
@@ -49,13 +49,14 @@ class PrinciplesController < ApplicationController
       params.permit(
         :principle_first, :principle_second, :principle_third, :principle_fourth,
         :principle_fifth, :principle_sixth, :principle_seventh, :principle_eighth,
-        :principle_ninth, :principle_tenth, :why_first, :what_first, :when_first,
-        :who_first, :how_first, :where_first, :other_first, :why_second, :what_second,
-        :when_second, :who_second, :how_second, :where_second, :other_second, :why_third,
-        :what_third, :when_third, :who_third, :how_third, :where_third, :other_third,
-        :user_id
-        # TODO: ユーザーまたはパートナーを参照する場合は、以下のように追加します。
-        # :partner_id
+        :principle_ninth, :principle_tenth,
+        :id_first, :why_first, :how_first, :when_first, :situation_first,
+        :where_first, :who_first, :what_first, :other_first,
+        :id_second, :why_second, :how_second, :when_second, :situation_second,
+        :where_second, :who_second, :what_second, :other_second,
+        :id_third, :why_third, :how_third, :when_third, :situation_third,
+        :where_third, :who_third, :what_third, :other_third,
+        :user_id, :partner_id
       )
     end
 end
