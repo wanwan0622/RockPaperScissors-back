@@ -8,4 +8,5 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
   has_one :partner
   has_one :principle
+  has_many :report
 end
