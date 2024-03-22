@@ -1,9 +1,9 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show update]
 
-  # GET /reports/:user_id
-  def show
-    report = Report.find_by(user_id: params[:user_id])
+  # GET /reports?user_id=1
+  def index
+    report = Report.where(user_id: params[:user_id])
 
     if report
       render json: report
