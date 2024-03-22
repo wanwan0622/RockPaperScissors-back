@@ -16,8 +16,4 @@ Rails.application.routes.draw do
   resources :partners, except: %i[index show]  
   resources :principles, only: %i[show], param: :user_id
   resources :principles, except: %i[index show]
-
-  # 議事録パート
-  resources :reports, only: %i[show], param: :user_id
-  resources :reports, except: %i[index show destroy]
 end
